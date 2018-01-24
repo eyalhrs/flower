@@ -330,15 +330,14 @@ var flower = (function () {
         event.stopPropagation();
 
         var taskname = $('#taskname').text();
-        var taskargs =  escape($('#taskargs').text());
-        var taskkwargs = escape($('#taskkwargs').text());
+        var taskargs = $('#taskargs').text();
+        var taskkwargs = $('#taskkwargs').text();
 
         $.ajax({
             type: 'POST',
             url: url_prefix() + '/api/task/async-apply/' + taskname,
             dataType: 'json',
-            data: JSON.stringify({args: taskargs, kwargs: taskkwargs}),
-//            data: '{"args":["/Users/eyal/Downloads/lab/studies.pcl.gz"]}',
+            data: '{"args":["/Users/eyal/Downloads/lab/studies.pcl.gz"]}',
             success: function (data) {
                 var message = 'Requeued UUID: ' + data['task-id']
                 show_success_alert(message);
