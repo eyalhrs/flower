@@ -337,10 +337,7 @@ var flower = (function () {
             type: 'POST',
             url: url_prefix() + '/api/task/async-apply/' + taskname,
             dataType: 'json',
-            data: {
-                'args': JSON.stringify(taskargs),
-                'kwargs': JSON.stringify(taskkwargs)
-            },
+            data: JSON.stringify({args: taskargs, kwargs: taskkwargs}),
             success: function (data) {
                 var message = 'Requeued UUID: ' + data['task-id']
                 show_success_alert(message);
