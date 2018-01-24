@@ -330,8 +330,8 @@ var flower = (function () {
         event.stopPropagation();
 
         var taskname = $('#taskname').text();
-        var taskargs =  $('#taskargs').text().replace(/'/g, '"');
-        var taskkwargs = $('#taskkwargs').text().replace(/'/g, '"');
+        var taskargs =  escape($('#taskargs').text());
+        var taskkwargs = escape($('#taskkwargs').text());
 
         $.ajax({
             type: 'POST',
